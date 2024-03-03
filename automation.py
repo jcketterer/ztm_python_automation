@@ -22,7 +22,6 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 
 #The below 3 lines ignores the https://demo.seleniumeasy.com SSL cert in case it is missing. Making your output cleaner. It isn't necessary, but added it here for you just in case. 
 options = webdriver.ChromeOptions()
@@ -51,5 +50,9 @@ show_message_button= chrome_browser.find_element(By.CLASS_NAME, 'btn-primary')
 show_message_button.click()
 assert 'Show Message' in chrome_browser.page_source
 
+output_message = chrome_browser.find_element(By.ID, 'display')
+assert 'I AM EXTRA COOOOL' in output_message.text
+
 # output_message = chrome_browser.find_element(By.ID, 'display')
 # assert 'I AM EXTRA COOOOL' in output_message.text
+#chrome_browser.quit()
